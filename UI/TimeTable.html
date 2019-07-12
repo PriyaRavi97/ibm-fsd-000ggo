@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Time Table</title>
+        <script type="text/javascript" src="TimeTable.js"></script>
+        <style type="text/css">
+        input{
+            border:3px solid;
+            border-radius: 4px;
+            border-color: blueviolet;
+            height: 25px;
+        }
+        body{
+            background: linear-gradient(135deg, rgb(245, 201, 120) 20% ,rgb(18, 192, 204) 50% , rgb(169, 238, 169) 60% ,rgb(255, 186, 186) 90%); 
+        }
+      
+        fieldset{
+            border-color: rgb(58, 5, 156);
+            border: 3px solid;
+            border-radius: 3.5px;
+            margin: 10px 10px 0px 10px;
+            width: 30%;
+           
+        }
+
+        
+        fieldset legend{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-style: normal;
+            color:black;
+        }
+
+        </style>
+    </head>
+    <body>
+        <fieldset><legend>Trainer Details</legend> <br/>
+                <div>
+                        <br/>Name  : &nbsp; <input type="text" name="trainerName" id="name" placeholder="Enter your name"/>
+                        <br/>
+                        <br/>
+                        <label>&nbsp;Select the Skills Known : </label> <br>
+                                <input type="checkbox" name="skill" id="maths" value="maths" onclick="check(id)">Maths<br/>
+                                <input type="checkbox" name="skill" id="english" value="english" onclick="check(id)">English<br/>
+                                <input type="checkbox" name="skill" id="cs" value="cs" onclick="check(id)">Computer Science<br/>
+                                <input type="checkbox" name="skill" id="physics" value="physics" onclick="check(id)">Physics<br/>
+                                <input type="checkbox" name="skill" id="biology" value="biology" onclick="check(id)">Biology<br/>
+                                <input type="checkbox" name="skill" id="sports" value="sports" onclick="check(id)">Sports<br/>
+                                <input type="button" name="submit" value="submit" onclick="submit()"/>
+                    </div><br/>
+        </fieldset>
+        <fieldset><legend>Class Schedule</legend>
+            <div>
+            <div id="classroom"></div>
+            <div id="slot"></div>
+            <div id="subject"></div>
+            <div id="trainer"></div>
+            <input type="button" name="submit" value="schedule" onclick="table()"/>
+        </div>
+         </fieldset>
+        <fieldset><legend>Time Table</legend>
+            <div id='sched'>
+                <table>
+                <tr>
+                    <th><a href="#">10am-11am</a></th>
+                    <th><a href="#">11am-12pm</a></th>
+                    <th><a href="#">12pm-1pam</a></th>
+                    <th><a href="#">2pm-3pm</a></th>
+                    <th><a href="#">3pm-4pam</a></th>
+                    <th><a href="#">4pm-5pam</a></th>
+                </tr>
+            </table>
+            </div>
+            <div id='sch'></div>
+        </fieldset>
+    </body>
+</html>
