@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Time Table</title>
+        <script type="text/javascript" src="TimeTable.js"></script>
+    </head>
+    <body>
+        <fieldset><legend>Trainer Details</legend> <br/>
+                <div>
+                        <br/>Name  : &nbsp; <input type="text" name="trainerName" id="name" placeholder="Enter your name"/>
+                        <br/>
+                        <br/>
+                        <label>&nbsp;Select the Skills Known : </label> <br>
+                                <input type="checkbox" name="skill" id="maths" value="maths" onclick="check(id)">Maths<br/>
+                                <input type="checkbox" name="skill" id="english" value="english" onclick="check(id)">English<br/>
+                                <input type="checkbox" name="skill" id="cs" value="cs" onclick="check(id)">Computer Science<br/>
+                                <input type="checkbox" name="skill" id="physics" value="physics" onclick="check(id)">Physics<br/>
+                                <input type="checkbox" name="skill" id="biology" value="biology" onclick="check(id)">Biology<br/>
+                                <input type="checkbox" name="skill" id="sports" value="sports" onclick="check(id)">Sports<br/>
+                                <input type="button" name="submit" value="submit" onclick="submit()"/>
+                    </div><br/>
+        </fieldset>
+        <fieldset><legend>Class Schedule</legend>
+            <div>
+            <div id="classroom"></div>
+            <div id="slot"></div>
+            <div id="subject"></div>
+            <input type="button" name="submit" value="schedule" onclick="table()"/>
+        </div>
+         </fieldset>
+        <fieldset><legend>Time Table</legend>
+            <div id='sched'>
+                <table>
+                <tr>
+                    <td><a href="#">10am-11am</a></td>
+                    <td><a href="#">11am-12pm</a></td>
+                    <td><a href="#">12pm-1pam</a></td>
+                    <td><a href="#">2pm-3pm</a></td>
+                    <td><a href="#">3pm-4pam</a></td>
+                    <td><a href="#">4pm-5pam</a></td>
+                </tr>
+            </table>
+            </div>
+            <div id='sch'></div>
+        </fieldset>
+    </body>
+</html>
