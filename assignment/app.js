@@ -4,7 +4,6 @@ const parser = require('body-parser');
 const cors = require('cors');
 
 const categoryRoutes = require('./apis/category').categoryRoutes;
-//const Email = require('./services/email.service').Email;
 const setContentHeader = require('./services/utils').setContentHeader;
 
 // apply json parser
@@ -19,9 +18,7 @@ server.get('/status',(req,res)=>{
     }));
 });
 
-// add routes to server
 server.use('/category',categoryRoutes);
-//server.use('/email',Email);
 
 // PORT Binding
 server.listen(1297,()=>{

@@ -5,6 +5,7 @@ let prices = [];
 let quantity=[];
 let total = [];
 let grand_total = 0 ;
+let inde =0;
 
 const getdata = ()=>{
 	const _url1 = 'http://localhost:1297/category';
@@ -111,28 +112,29 @@ const quan= (id,ind,value) =>{
             fetch(_url1)
             .then(res=>res.json())
             .then(list=>{
-          console.log(ind,value);
+          console.log("ind" + ind + "value" + value);
        if(quantity[ind-1]+value == 0){
        		console.log("zero"+ind);
-       		document.getElementById('mytable').deleteRow(ind-1);
-       }
+       		document.getElementById('mytable').deleteRow(ind-inde);
+       		inde++;
+       	}
        else{
 
-	quantity[ind-1] = parseInt(quantity[ind-1]) + parseInt(value);
-	document.getElementById(list.category[id-1].name).innerText = quantity[ind-1];
+			quantity[ind-1] = parseInt(quantity[ind-1]) + parseInt(value);
+			document.getElementById(list.category[id-1].name).innerText = quantity[ind-1];
 	
-	total[ind-1]=parseInt(prices[ind-1]) * parseInt(quantity[ind-1]);
-	document.getElementById(list.category[id-1].typ).innerHTML = total[ind-1];
+			total[ind-1]=parseInt(prices[ind-1]) * parseInt(quantity[ind-1]);
+			document.getElementById(list.category[id-1].typ).innerHTML = total[ind-1];
+	}
 	if(value==-1)
 	{
-		grand_total = parseInt(grand_total) - parseInt(prices[ind-1]);
+			grand_total = parseInt(grand_total) - parseInt(prices[ind-1]);
 			document.getElementById('gtotal').value = grand_total;
 	}
 	else{
 			grand_total = parseInt(grand_total) + parseInt(prices[ind-1]);
 			document.getElementById('gtotal').value = grand_total;
 	}
-}
 			
 })
 
