@@ -2,8 +2,29 @@
 <html>
 <head>
 	<title>Shopping zone</title>
-	<script type="text/javascript" src="list.js"></script>
+	<script type="text/javascript" src="list.js">
+		const amt=()=>{
+			let total = document.getElementById('gtotal').value;
+			url = 'http://localhost:1297/category/email';
+			fetch(url,{
+				method : 'POST',
+				headers:{
+                        'content-type' : 'application/json'
+                    },
+                    body:JSON.stringify({
+                        name:name,
+                        email:email
+                    })
+                })
+			console.log("Mail sent");
+		}
+	</script>
 	<style type="text/css">
+		/*body{
+
+            background: linear-gradient(135deg, rgb(245, 201, 120) 20% ,rgb(18, 192, 204) 50% , rgb(169, 238, 169) 60% ,rgb(255, 186, 186) 90%); 
+
+        }*/
 		body{
 			background: url(image.jpg);
 		}
@@ -30,7 +51,7 @@
 		<br><br>
 			Grand total(rs) : <input type="text" id="gtotal">
 		<br><br>
-		<input type="submit" value="view cart">
+		<input type="submit" value="view cart" onclick="amt()">
 		<input type="submit" value="Proceed to Deleiver the products">
 	</fieldset>
 </form>
