@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping zone</title>
+	<script type="text/javascript" src="list.js"></script>
+	<style type="text/css">
+		body{
+			background: url(image.jpg);
+		}
+	</style>
+</head>
+<body onload="getdata()">
+	<header>
+		<a href="cart.html"><img width="70px" height="70px" src="cart.jpg"></a>
+	</header>
+	<form action="cart.html">
+	<h3>Buy the best products for best price....</h3>
+	<br><br><fieldset>
+		<legend>Select Item</legend>
+			<div id="catelog">
+			</div>
+			<div>
+				<input type="button" value="add" onclick="find()">
+			</div>
+	</fieldset>
+	
+	<fieldset><legend>Items addes</legend>
+		<div id="tabl">
+		</div>
+		<br><br>
+			Grand total(rs) : <input type="text" id="gtotal">
+		<br><br>
+		<input type="submit" value="view cart">
+		<input type="submit" value="Proceed to Deleiver the products">
+	</fieldset>
+</form>
+</body>
+</html>
