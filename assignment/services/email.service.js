@@ -16,7 +16,7 @@ class Email {
         this.mailer = nodemailer.createTransport(this.smtpSetup);
     }
 
-    emailWithAttachment(userObj){
+    email(userObj){
         // in case sender isnt mentioned
         if(userObj.from == null){
             userObj.from = utils.smtp.address;
@@ -24,6 +24,29 @@ class Email {
         this.mailer.sendMail({
             from : userObj.from,
             to : userObj.to,
+            subject : userObj.subject,
+            /*text : emailBody, */
+            html : userObj.body
+        },(err,response)=>{
+            if(err){
+                console.log(err);
+                return "Unable to send email";
+            }else{
+                console.log('Email Sent');
+                return "Email Sent Successfully";
+            }
+        })
+    }
+   
+
+    emailWithAttachment(userObj){
+        // in case sender isnt mentioned
+        if(userObj.from == null){
+            userObj.from = utils.smtp.address;
+        }
+        this.mailer.sendMail({
+            from : userObj.from,
+            to : tomail,
             subject : userObj.subject,
             /*text : emailBody, */
             html : userObj.body,

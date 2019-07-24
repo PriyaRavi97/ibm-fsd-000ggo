@@ -1,15 +1,18 @@
-const CService = require('../services/catelog.Service').CategoryService;
-
-const categoryService = new CService();
-const express = require('express');
-const server = express();
-
+const router = require('express').Router();
+const CategoryService = require('../services/catelog.service').CategoryService;
+const service = new CategoryService();
+//const server = new router();
 // get all projects
 
-server.get('/',(req,res)=>{
+router.get('/',(req,res)=>{
     res.end(JSON.stringify({
-        category : categoryService._all()
+        category : service._all()
     }));
 });
 
-module.exports.categoryRoutes = server;
+router.post('/email',(rq,rs)=>{
+	service.email(rq.body);
+})
+
+
+module.exports.categoryRoutes = router;

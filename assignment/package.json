@@ -9,6 +9,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "nodemailer": "^6.3.0"
+  },
+  "devDependencies": {
+    "express": "^4.17.1"
   }
 }

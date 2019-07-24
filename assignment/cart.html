@@ -2,7 +2,24 @@
 <html>
 <head>
 	<title>cart</title>
-	<script type="text/javascript" src="list.js"></script>
+	<script type="text/javascript">
+		const disp=()=>{
+			let name = document.getElementById('name').value;
+			let email = document.getElementById('email').value;
+			url = 'http://localhost:1297/category/email';
+			fetch(url,{
+				method : 'POST',
+				headers:{
+                        'content-type' : 'application/json'
+                    },
+                    body:JSON.stringify({
+                        name:name,
+                        email:email
+                    })
+                })
+			console.log("Mail sent");
+		}
+	</script>
 	<style type="text/css">
 		body{
 			background: url(image.jpg);
@@ -13,7 +30,9 @@
 	<br><h3>Your items in the cart</h3>
 
 	<br><br>
-	Enter your email id : <input type="email" name="email" placeholder="enter email">
+	Enter name : <input type="text" name="name" id="name" placeholder="name"><br>
+	Enter your email id : <input type="email" id="email" name="email" placeholder="enter email">
+	<input type="button" name="send mail" value="send mail" onclick="disp()">
 	
 	<br><br><h4>Address:<br>Manayata tech Business tech park,<br>
 		outer ring road,<br>
