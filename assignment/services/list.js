@@ -46,8 +46,8 @@ const findItem = (list)=>{
 	list.category.forEach((e)=>{
 		if(e.name == product){
 			prices[i]=e.price;
-			i++;
-			row += `<br><tr><td>${e.name}</td><td>${e.quantity}</td><td id="price">${e.price}</td><td></td></tr>`
+
+			row += `<br><tr><td>${e.name}</td><td>${quantity[i]}</td><td id="price">${prices[i]}</td><td></td></tr>`
 		}
 	});
 	document.getElementById('tabl').innerHTML = row ;

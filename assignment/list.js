@@ -71,7 +71,7 @@ const display = (prt)=>{
 	document.getElementById('catelog').innerHTML = records;
 }
 
-let row = `<table border="3px"><tr>
+let row = `<table id="mytable" border="3px"><tr>
 					<th>Name</th>
 					<th>Quantity</th>
 					<th>Price 
@@ -111,7 +111,13 @@ const quan= (id,ind,value) =>{
             fetch(_url1)
             .then(res=>res.json())
             .then(list=>{
-    
+          console.log(ind,value);
+       if(quantity[ind-1]+value == 0){
+       		console.log("zero"+ind);
+       		document.getElementById('mytable').deleteRow(ind-1);
+       }
+       else{
+
 	quantity[ind-1] = parseInt(quantity[ind-1]) + parseInt(value);
 	document.getElementById(list.category[id-1].name).innerText = quantity[ind-1];
 	
@@ -126,6 +132,7 @@ const quan= (id,ind,value) =>{
 			grand_total = parseInt(grand_total) + parseInt(prices[ind-1]);
 			document.getElementById('gtotal').value = grand_total;
 	}
+}
 			
 })
 
