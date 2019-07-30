@@ -1,0 +1,73 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title> Login | Resume Creator </title>
+   <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .row_style{
+            margin-top:50px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="header">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Resume Creator</a>                
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>  
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                    </ul>
+                </div>
+            </div> 
+            </nav>
+        </div>
+        <div id="content">
+        <div id="banner_image">
+        <div class="container">
+            <div class="container-fluid decor_bg" id="login-panel">
+                <div class="row">
+                    <div class="col-xs-4 col-md-offset-4"><br/> <br/> <br/> <br/> <br/> <br/>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4>LOGIN</h4>
+                            </div>
+                            <div class="panel-body">
+                                <p class="text-warming"><i>Login to create the resume</i></p>
+                                <form role="form" action="question.html" method="POST">
+                                    <div class="form-group">
+                                            <input type="email" name="email" placeholder="Enter Email ID" required/>
+                                    </div>
+                                    <div class="form-group">
+                                            <input type="password" name="password" placeholder="Password" required/> </td>
+                                    </div>
+                                    <button type="submit" name="submit">Login</button><br><br>
+                                </form>
+                            </div>
+                            <div class="panel-footer"><p style="color: black">Don't have an account? <a href="signup.html">Register</a></p></div>
+                        </div>
+                    </div><br/><br/>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        <footer>
+            <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="footer">
+                    <p>Copyright &copy;Resume Creator. All Rights Reserved | Contact Us: +91 9000 9000</p>
+            </div>
+            </nav>
+        </footer>
+    </body>
+</html> 
