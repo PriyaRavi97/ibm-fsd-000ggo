@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Hi</title>
+        <style>
+                body{
+                    background: url("img3.jpg");
+                    width: 100%;
+                    height: 100%;
+                }
+                h1{
+                    color: chocolate;
+                }
+                h2{
+                    color :mediumspringgreen;
+                }
+            </style>
+        <script>
+            const save = ()=>{
+                let code = document.getElementById('verify-code').value;
+                let pass = document.getElementById('password').value;
+                let cnfmpass = document.getElementById('confrm-pass').value;
+                const _url1 = 'http://localhost:9998/auth/validateCode';
+                                fetch(_url1,{
+                                    method : 'POST',
+                                    headers:{
+                                        'content-type' : 'application/json'
+                                    },
+                                    body:JSON.stringify({
+                                        code : code,
+                                        pass : pass,
+                                        cnfmpass : cnfmpass
+                                    })  
+                                })
+                                .then(res=>res.json())
+                                .then(data=>{
+                                document.write("password saved");
+                 })
+            }
+        </script>
+    </head>
+    <body>
+        <h1>welcome</h1>
+        <form>
+            <h1>Enter the details:</h1><br>
+            <h2>verification code : <input type="text"  id="verify-code" placeholder="verification-code"/></h2><br>
+            <h2>password : <input type="password" id="password" placeholder="password"/></h2><br>
+            <h2>confirm password : <input type="password" id="confrm-pass" placeholder="confirm password"/></h2>
+            <input type="button" id="submit" value="submit" onclick="save()"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Hi</title>
+        <style>
+            body{
+                background: url("img3.jpg");
+                width: 100%;
+                height: 100%;
+            }
+            h1{
+                color: chocolate;
+            }
+            h2{
+                color :mediumspringgreen;
+            }
+        </style>
+    <script>
+         const save = ()=>{
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                console.log(name,email);
+                const _url1 = 'http://localhost:9998/auth/code';
+                                fetch(_url1,{
+                                    method : 'POST',
+                                    headers:{
+                                        'content-type' : 'application/json'
+                                    },
+                                    body:JSON.stringify({
+                                        name : name,
+                                        email : email
+                                    })  
+                                })
+                                .then(res=>res.json())
+                 .then(data=>{
+                     document.write("OTP sent to mail");
+                     document.location = "file:///E:/ibm-fsd-000ggo/JAVA/01.08.19/login%20using%20verify%20code/hi.html";
+                 })
+            }
+    </script>
+    </head>
+    <body>
+        <h1>welcome to our website</h1>
+        <form action="hi.html">
+            <h2>name : <input type="text"  id="name" placeholder="name"/></h2><br>
+            <h2>email : <input type="text" id="email" placeholder="email"/></h2><br><br>
+            <input type="button" id="submit" value="submit" onclick="save()"/>
+        </form>
+    </body>
+</html>
