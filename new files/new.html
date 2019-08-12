@@ -1,0 +1,66 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+<script src="dialog.js"></script>
+
+<html>
+
+<body>
+
+  <button class="dialog" onclick='Experience({
+      title: "Title",
+      message: "Do you have any Experience",
+      funk_Ok: function(){ console.log("Sorry. :("); }
+    });'>Experience</button>
+
+<div id="exp"></div>
+<div id="close"></div>
+    
+ <br><br>
+ 
+ <button class="dialog" onclick='schooling({
+  title: "Schooling",
+  message: "Can you enter your schooling educaton details",
+  input: "State board / CBSC", 
+  funk_Ok: function(){ console.log("Give me more words ! :)"); }
+});'>schooling</button>
+<div id="10th"></div>
+<div id="12th"></div>
+
+<br><br>
+ <button class="dialog" onclick='Graduation({
+      title: "Graduation",
+      message: "Are you a Graduate?",
+      funk_Yes: function(){ console.log("You said “Yes”! :)"); },
+      funk_No: function(){ console.log("You said “No”! :("); }
+    });'>Graduation</button>
+    <div id="ug"></div>
+    <div id="pg"></div>
+
+    <br><br>
+
+    <button class="dialog" onclick='Address({
+      title: "Address",
+      message: "Enter your Address :",
+      funk_Yes: function(){ console.log("You said “Yes”! :)"); },
+    });'>Address</button>
+    <div id="address"></div>
+    <br><br>
+
+    <button class="dialog" onclick='Skills({
+      title: "Skills",
+      message: "Select the skills you know",
+      funk_Yes: function(){ console.log("You said “Yes”! :)"); },
+    });'>Skills</button>
+    <div id="skill"></div>
+ 
+    <button class="dialog" onclick='Income({
+      title: "Income",
+      message: "Select the skills you know",
+      funk_Yes: function(){ console.log("You said “Yes”! :)"); },
+    });'>Skills</button>
+    <div id="skill"></div>
+ 
+</body>
+
+</html>

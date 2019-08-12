@@ -1,0 +1,130 @@
+function dialog_Handler({
+  title,
+  message,
+  buttons,
+  input
+}) {
+  $("<p>" + message + "</p>").dialog({ // Could use “var dialog = ”
+    //autoOpen: false,					// false would prevents regular opening
+    show: "drop",
+    open: function(event, ui) {
+      // Overlay parameterization
+      $("div.ui-widget-overlay").css({
+        "background": "#000",
+        "opacity": "0.4"
+      });
+      $(".ui-widget-overlay").hide().fadeIn();
+      // Adds some more configuration if input needed
+      if (input) {
+        // Adds input field right under the message
+        $(this).append('<br /><br /><input id="dialog_Input" style="width: 350px; padding: 4px;" type="text" value="' + input + '"><br />');
+        // Binds “Enter” to press first button (usually “Ok”)
+        $(this).keydown(function(event) {
+          if (event.keyCode == $.ui.keyCode.ENTER) {
+            $(this).parent().find("button:eq(1)").trigger("click");
+            return false;
+          }
+        });
+      }
+    },
+    title: title,
+    buttons: buttons,
+    modal: true,
+    resizable: false,
+    height: "auto",
+    width: 400,
+    hide: {
+      effect: "drop",
+      duration: "fast"
+    },
+    closeOnEscape: true,
+    // Overlay fadeout
+    beforeClose: function(event, ui) {
+      // Wait for the overlay to be faded out to try closing again
+      if ($('.ui-widget-overlay').is(":visible")) {
+        $('.ui-widget-overlay').fadeOut("fast", function() {
+          $('.ui-widget-overlay').hide();
+          $('.ui-icon-closethick').trigger('click');
+        });
+        return false;
+      }
+    },
+    close: function() {
+      $(this).dialog("destroy");
+    }
+  });
+  return;
+}
+
+function dialog_OkCancel({
+  title,
+  message,
+  funk_Ok
+}) {
+  var buttons = {
+    "Ok": function() {
+      funk_Ok();
+      $(this).dialog("close");
+    },
+    "Cancel": function() {
+      $(this).dialog("close");
+    }
+  }
+  dialog_Handler({
+    title,
+    message,
+    buttons
+  });
+  return;
+}
+
+function dialog_Input_OkCancel({
+  title,
+  message,
+  input,
+  funk_Ok
+}) {
+  var buttons = {
+    "Ok": function() {
+      funk_Ok();
+      $(this).dialog("close");
+    },
+    "Cancel": function() {
+      $(this).dialog("close");
+    }
+  }
+  dialog_Handler({
+    title,
+    message,
+    buttons,
+    input
+  });
+  return;
+}
+
+function dialog_YesNoCancel({
+  title,
+  message,
+  funk_Yes,
+  funk_No
+}) {
+  var buttons = {
+    "Yes": function() {
+      funk_Yes();
+      $(this).dialog("close");
+    },
+    "No": function() {
+      funk_No();
+      $(this).dialog("close");
+    },
+    "Cancel": function() {
+      $(this).dialog("close");
+    }
+  }
+  dialog_Handler({
+    title,
+    message,
+    buttons
+  });
+  return;
+}

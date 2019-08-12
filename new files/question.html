@@ -1,0 +1,109 @@
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+
+<html>
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title> Survey | Resume Creator </title>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="file.js"></script>
+
+    <style>
+            .row_style{
+            margin-top:50px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="header">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Resume Creator</a>                
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>  
+                </div>&nbsp;
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                    </ul>
+                </div>
+            </div> 
+            </nav>
+        </div>
+
+        <br><br><br><br>
+<form>
+        <button class="dialog" onclick='Experience({
+          title: "Title",
+          message: "Do you have any Experience",
+          funk_Ok: function(){ console.log("Sorry. :("); }
+        });'>Experience</button>
+    
+    <div id="exp"></div>
+    <div id="close"></div>
+        
+     <br><br>
+     
+     <button class="dialog" onclick='schooling({
+      title: "Schooling",
+      message: "Can you enter your schooling educaton details",
+      input: "State board / CBSC", 
+      funk_Ok: function(){ console.log("Give me more words ! :)"); }
+    });'>schooling</button>
+    <div id="10th"></div>
+    <div id="12th"></div>
+    
+    <br><br>
+     <button class="dialog" onclick='Graduation({
+          title: "Graduation",
+          message: "Are you a Graduate?",
+          funk_Yes: function(){ console.log("You said “Yes”! :)"); },
+          funk_No: function(){ console.log("You said “No”! :("); }
+        });'>Graduation</button>
+        <div id="ug"></div>
+        <div id="pg"></div>
+    
+        <br><br>
+    
+        <button class="dialog" onclick='Address({
+          title: "Address",
+          message: "Enter your Address :",
+          funk_Yes: function(){ console.log("You said “Yes”! :)"); },
+        });'>Address</button>
+        <div id="address"></div>
+        <br><br>
+    
+        <button class="dialog" onclick='Skills({
+          title: "Skills",
+          message: "Select the skills you know",
+          funk_Yes: function(){ console.log("You said “Yes”! :)"); },
+        });'>Skills</button>
+        <div id="skill"></div>
+     
+        <br><br>
+
+        <button class="dialog" onclick='Income({
+          title: "Income",
+          message: "What is your Expected Income?",
+          funk_Yes: function(){ console.log("You said “Yes”! :)"); },
+        });'>Income</button>
+        <div id="income"></div>
+      </form>
+
+        <footer>
+            <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="footer">
+                    <p>Copyright &copy;Resume Creator. All Rights Reserved | Contact Us: +91 9000 9000</p>
+            </div>
+   
+            </nav>
+        </footer>
+    </body>

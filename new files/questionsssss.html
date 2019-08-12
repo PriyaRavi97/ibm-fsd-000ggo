@@ -1,0 +1,70 @@
+<html>
+    <head>
+    <title></title>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="file.js" type="text/javascript"></script>
+    <style>
+        .dialog {
+  display: block;
+  margin: 8px;
+  text-align: center;
+  width: 120px;
+}
+    </style>
+    </head>
+    <body>
+            <div>  
+                    <!-- Modal content -->
+                    <br><br><br><br><br>
+                    <dialog id="myExp" style="width:50%;background-color:#F4FFEF;border:1px dotted black;">  
+                    &nbsp;<p> Do you have any Experience in working? Yes <input type="radio" name="exp" id="yes" value="yes" onclick="exp_det()">
+                        No<input type="radio" name="exp" id="no" value="no" onclick="next()"> <br> <br></p>
+                        <div id="exp"></div>
+                        <br>
+                        <div id="close"></div>
+                        <button id="hide">Close</button>  
+                    </dialog>  
+                    <button id="show">Experience</button>  
+                    </div>    
+                            
+                    <script>
+                        (function() {    
+                            var dialog = document.getElementById('myExp1');    
+                            document.getElementById('show').onclick = function() {    
+                                dialog.show();    
+                            };    
+                            document.getElementById('hide').onclick = function() {    
+                                dialog.close();    
+                            };    
+                        })();
+                        </script>  
+
+                    <!-- JavaScript to provide the "Show/Close" functionality -->  
+                    <script type="text/JavaScript">  
+                    (function() {    
+                        var dialog = document.getElementById('myExp');    
+                        document.getElementById('show').onclick = function() {    
+                            dialog.show();    
+                        };    
+                        document.getElementById('hide').onclick = function() {    
+                            dialog.close();    
+                        };    
+                    })();
+                    </script>
+
+                        <br><br><br><br><br>
+                        <dialog id="myExp1" style="width:50%;background-color:#F4FFEF;border:1px dotted black;">  
+                            <label>&nbsp;10TH Percentage</label>
+                                <input type="number" name="10th" max="100" placeholder="Enter 10th Percentage" required/><br/><br> 
+                                school name : <textarea rows="2" cols="40" onclick="next1()" placeholder="Enter your school name"></textarea><br><br></p>
+                            <div id="12th"></div>
+                            <br>
+                            <div id="close"></div>
+                            <button id="hide">Close</button>  
+                        </dialog>  
+                        <button id="show">Schooling</button>  
+                        </div>  
+
+                   
+    </body>
+</html>
