@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <script src="calculate.js" type="text/javascript"></script>
+        <style>
+            td{
+                width: 50px;
+                height: 50px;
+            }
+            input[type="button"]{
+                width: 100%;
+                height: 100%;
+            }
+            input{
+                width: 215px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Calculate</legend>
+            <div>
+                    <td><input type="text" id='text' name="text" placeholder="Enter"/></td>
+                <table>
+                    <tr>
+                        <td><input type="button" id='1' value="1" onclick="display(id)"></td>
+                        <td><input type="button" id='2' name="two" value="2" onclick="display(id)"></td>
+                        <td><input type="button" id='3' name="three" value="3" onclick="display(id)"></td>
+                        <td><input type="button" id='+' name="plus" value="+" onclick="operator(id)"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id='4' name="four" value="4" onclick="display(id)"></td>
+                        <td><input type="button" id='5' name="five" value="5" onclick="display(id)"></td>
+                        <td><input type="button" id='6' name="six" value="6" onclick="display(id)"></td>
+                        <td><input type="button" id='-' name="minus" value="-" onclick="operator(id)"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id='7' name="seven" value="7" onclick="display(id)"></td>
+                        <td><input type="button" id='8' name="eight" value="8" onclick="display(id)"></td>
+                        <td><input type="button" id='9' name="nine" value="9" onclick="display(id)"></td>
+                        <td><input type="button" id='*' name="mul" value="*" onclick="operator(id)"></td>
+                    </tr>
+                    <tr>
+                            <td><input type="button" id='0' name="zero" value="0" onclick="display(id)"></td>
+                            <td><input type="button" id='/' name="div" value="/" onclick="operator(id)"></td>
+                            <td><input type="button" id='=' name="equal" value="=" onclick="operator(id)"></td>
+                            <td><input type="button" id='clr' name="clr" value="clr" onclick="operator(id)"></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </body>
+</html>

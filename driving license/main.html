@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <title>Login Page</title>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> 
+        <script type="text/javascript">
+            const save = ()=>{
+                let name = $('#name').val();
+                let father = $('#fther').val();
+                let dob1 = $('#DOB').val();
+                let addr = $('#addr').val();
+                let bldgrp = $('#blood').val();
+                let vehino = $('#vehno').val();
+
+               // console.log(name);
+
+               let out = `<div class="container">
+                        <div class="card-body text-success"> 
+                                <div class="card border-primary">          
+                        <div class="row">
+                            <div class="offset-2" class="col-9">
+                                        <h6 class="card-header">KARNATAKA STATE<br>INDIAN UNION MOTOR DRIVING LICENSE<br></h6>
+                                     <!--<h6 class="card-title">Hola</h6>-->
+                                        <p class="card-text">
+                                            <br>
+                                            <div class="form-group">
+                                                Name : <input type="text" id="cname" placeholder="name" readonly/>
+                                            </div>
+                                            <div class="form-group">
+                                                Son of : <input type="text" id="father" placeholder="father name" readonly/>
+                                            </div>
+                                            <div class="form-group">
+                                                Blood group : <input type="text" id="blood-grp" placeholder="blood group" readonly/>
+                                            </div>
+                                            <div class="form-group">
+                                                Address : <textarea rows="2" cols="30" id="address" placeholder="address" readonly></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                Data of Birth : <input type="text" id="dob" placeholder="DOB" readonly/>
+                                            </div>
+                                            <div class="form-group">
+                                                Vehicle number :  <input type="text" id="veh-no" placeholder="veh-no" readonly/>
+                                            </div>
+                                            <div class="form-group">
+                                                Date of Issue : 26/07/2019<br>
+                                                Validity : 30/07/2039
+                                            </div>   
+                                            <div class="form-group">
+                                                <input type="button" onclick="edit()" class="btn btn-info" value="Edit" />
+                                            </div>
+                                        </p>
+                                    </div>
+                                    <div class="col-3">
+                                            <img src="logo.jpg" width="200px" height="100px"/>
+                                            <br><br><br><br>
+                                            <img src="girl.png" width="200px" height="200px"/>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>`;
+                document.getElementById('disp').innerHTML = out;
+
+                document.getElementById('cname').value = name;
+                document.getElementById('father').value = father;
+                document.getElementById('blood-grp').value = bldgrp;
+                document.getElementById('address').value = addr;
+                document.getElementById('dob').value = dob1;
+                document.getElementById('veh-no').value = vehino;
+        }
+        const edit = ()=>{
+                let name = $('#cname').val();
+                let father = $('#father').val();
+                let dob1 = $('#dob').val();
+                let addr = $('#address').val();
+                let bldgrp = $('#blood-grp').val();
+                let vehino = $('#veh-no').val();
+
+               // console.log(name);
+
+               let out = `<div class="container" id="disp">
+            <div class="card-body text-success"> 
+                    <div class="card border-primary">          
+            <div class="row">
+                <div class="offset-2" class="col-9">
+                            <h6 class="card-header">Enter the details</h6>
+                            <p class="card-text">
+                                <br>
+                                <div class="form-group">
+                                    Name : <input type="text" id="name" placeholder="name"/>
+                                </div>
+                                <div class="form-group">
+                                    Son of : <input type="text" id="fther" placeholder="father name"/>
+                                </div>
+                                <div class="form-group">
+                                    Blood group : <input type="text" id="blood" placeholder="blood group"/>
+                                </div>
+                                <div class="form-group">
+                                    Address : <textarea rows="2" cols="30" id="addr" placeholder="address"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    Data of Birth : <input type="text" id="DOB" placeholder="DOB"/>
+                                </div>
+                                <div class="form-group">
+                                    Vehicle number :  <input type="text" id="vehno" placeholder="veh-no"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" onclick="save()" class="btn btn-primary" value="Save" />
+                                </div>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                </div>`;
+                document.getElementById('disp').innerHTML = out;
+
+                document.getElementById('name').value = name;
+                document.getElementById('fther').value = father;
+                document.getElementById('blood').value = bldgrp;
+                document.getElementById('addr').value = addr;
+                document.getElementById('DOB').value = dob1;
+                document.getElementById('vehno').value = vehino;
+}
+        </script>
+    </head>
+    <body>
+        <br><br><br>
+        <div class="container" id="disp">
+            <div class="card-body text-success"> 
+                    <div class="card border-primary">          
+            <div class="row">
+                <div class="offset-2" class="col-9">
+                            <h6 class="card-header">Enter the details</h6>
+                            <p class="card-text">
+                                <br>
+                                <div class="form-group">
+                                    Name : <input type="text" id="name" placeholder="name"/>
+                                </div>
+                                <div class="form-group">
+                                    Son of : <input type="text" id="fther" placeholder="father name"/>
+                                </div>
+                                <div class="form-group">
+                                    Blood group : <input type="text" id="blood" placeholder="blood group"/>
+                                </div>
+                                <div class="form-group">
+                                    Address : <textarea rows="2" cols="30" id="addr" placeholder="address"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    Data of Birth : <input type="text" id="DOB" placeholder="DOB"/>
+                                </div>
+                                <div class="form-group">
+                                    Vehicle number :  <input type="text" id="vehno" placeholder="veh-no"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" onclick="save()" class="btn btn-primary" value="Save" />
+                                </div>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                
+    </body>
+</html>
