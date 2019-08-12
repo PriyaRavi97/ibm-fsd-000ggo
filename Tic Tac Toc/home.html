@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <style>
+            table{
+                height: 200px;
+                width: 200px;
+            }
+        </style>
+        <script>
+            let player = '';
+            let arr = [];
+            const player1=()=>{
+                let name = document.getElementById('player1').value;
+                player = name;
+                console.log(player);
+            }
+
+            const player2=()=>{
+                let name = document.getElementById('player2').value;
+                player = name;
+                console.log(player);
+            }
+
+            const mark = (id) =>{
+                if(player=="player1"){
+                    arr[id]='x';
+                    console.log(id,arr[id]);
+                }
+                else{
+                    arr[id]='o';
+                    console.log(id,arr[id]);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <table border="5px">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br><br>
+        <input type="button" value="Player1" id="player1" onclick="player1()"/> &nbsp; &nbsp;&nbsp; &nbsp;
+        <input type="button" value="Player2" id="player2" onclick="player2()"/>
+    </body>
+</html>

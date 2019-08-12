@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> 
+        
+        <style>
+            table{
+                height: 200px;
+                width: 200px;
+            }
+        </style>
+        <script>
+            let player = '';
+            let arr = [];
+            let ct=0;
+
+            const save=()=>{
+                const _url1 = 'http://localhost:6699/api/block/addUser';
+                                fetch(_url1,{
+                                    method : 'POST',
+                                    headers:{
+                                        'content-type' : 'application/json'
+                                    },
+                                    body:JSON.stringify({
+                                       name : player
+                                    })  
+                                })
+                alert("Game is saved");
+            }
+
+            const contnue=()=>{
+                alert(`The game was ended by ${player}`);
+            }
+
+            const player1=()=>{
+                let name = document.getElementById('player1').value;
+                player = name;
+            }
+
+            const player2=()=>{
+                let name = document.getElementById('player2').value;
+                player = name;
+            }
+
+            const print=(data)=>{
+                console.log(data.message);
+            }
+
+            const mark = (ind) =>{
+                if(player == ''){
+                    alert("select the player");
+                }
+                else{
+                    if(player=="player1"){
+                        if(arr[ind]==undefined)
+                        {
+                            arr[ind]='X';
+                            slot = 'X';
+                            document.getElementById(ind).innerHTML = arr[ind];
+                            ct++;
+                                const _url1 = 'http://localhost:6699/api/block/add';
+                                fetch(_url1,{
+                                    method : 'POST',
+                                    headers:{
+                                        'content-type' : 'application/json'
+                                    },
+                                    body:JSON.stringify({
+                                        _id : id,
+                                        index : ind,
+                                        slot : slot
+                                    })  
+                                })
+                        }
+                        else{
+                            alert("Box is already marked. Select the other box");
+                        }
+                        if(ct==9){
+                            alert("Game draw");
+                            const _url1 = 'http://localhost:6699/api/block/drop';
+                                fetch(_url1,{
+                                    method : 'POST',
+                                    headers:{
+                                        'content-type' : 'application/json'
+                                    },  
+                                }).then(res=>res.json())
+                                    .then(data=>{
+                                    print(data);
+                                })
+                        }
+                    }
+                    else{
+                        if(arr[ind]==undefined)
+                        {
+                            arr[ind]='O';
+                            slot = 'O';
+                            document.getElementById(ind).innerHTML = arr[ind];
+                            ct++;
+
+                            const _url1 = 'http://localhost:6699/api/block/add';
+                            fetch(_url1,{
+                                method : 'POST',
+                                headers:{
+                                    'content-type' : 'application/json'
+                                },
+                                body:JSON.stringify({
+                                    _id : id,
+                                    index : ind,
+                                    slot : slot
+                                })  
+                           })
+                        }
+                        else{
+                            alert("Box is already marked. Select the other box");
+                        }
+                        if(ct==9){
+                            alert("Game draw");
+                            const _url1 = 'http://localhost:6699/api/block/drop';
+                                fetch(_url1,{
+                                    method : 'POST',
+                                    headers:{
+                                        'content-type' : 'application/json'
+                                    },  
+                                }).then(res=>res.json())
+                                    .then(data=>{
+                                    print(data);
+                                })
+                        }
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <br><br><br>
+        <h2 style="padding-left: 5px">Tic Toc Toe</h2>
+        <table align="center" border="5px">
+             <tr> 
+                <td id="1" onclick="mark(id)"></td>
+                <td id="2" onclick="mark(id)"></td>
+                <td id="3" onclick="mark(id)"></td>
+            </tr>
+            <tr>
+                <td id="4" onclick="mark(id)"></td>
+                <td id="5" onclick="mark(id)"></td>
+                <td id="6" onclick="mark(id)"></td>
+            </tr>
+            <tr>
+                <td id="7" onclick="mark(id)"></td>
+                <td id="8" onclick="mark(id)"></td>
+                <td id="9" onclick="mark(id)"></td>
+            </tr>
+        </table>
+        <br><br>
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+        <input type="button" value="player1" id="player1" class="btn btn-primary" onclick="player1()"/> &nbsp; &nbsp;&nbsp; &nbsp;
+        <input type="button" value="player2" id="player2" class="btn btn-primary" onclick="player2()"/><br><br><br>
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+        <input type="button" value="SaveGame" id="save" class="btn btn-warning" onclick="save()"/>
+        <input type="button" value="continue" class="btn btn-info" id="contnue" onclick="contnue()"/>&nbsp; &nbsp;&nbsp; &nbsp;
+    </body>
+</html>

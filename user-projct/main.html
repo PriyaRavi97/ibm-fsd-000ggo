@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User - Project page</title>
+	<script type="text/javascript" src="list.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+		$(document).ready(func(){
+
+			$("#select option[value='Bob']" ).attr('disabled','disabled').hide();
+		})
+	</script>
+</head>
+<body>
+	<input type="button" id="get" value="get" onclick="getdata()">
+	<fieldset>
+		<div id="projects"></div>
+		<div id="users"></div>
+	</fieldset>
+	<fieldset><legend>project details</legend>
+		<div>
+			<select id="project" onchange="list(id)">
+				<option> </option>
+				<option>AT & T</option>
+				<option>Google</option>
+				<option>Facebook</option>
+			</select>
+		</div>
+		<div id="list">
+			
+		</div>
+	</fieldset>
+</body>
+</html>
